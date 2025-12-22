@@ -1,9 +1,12 @@
-public class Member {
-    int a = 10;
-    int b = 20;
-    int c = 30;
-    int d = 40;
-    int e = 50;
-    int f = 60;
-    int g = 70;
+public class Member extends Person {
+    private double salary;
+
+    public Member(int id, String name, String phone) {
+        super(id, name, phone);
+    }
+
+    @Override
+    public String getRole() {
+        return "Member";
+    }
 }
