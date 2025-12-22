@@ -1,5 +1,5 @@
 public class Member extends Person {
-    private double salary;
+    private String level;
 
     public Member(int id, String name, String phone) {
         super(id, name, phone);
