@@ -20,6 +20,9 @@ public class Member extends Person {
 
     @Override
     public String getRole() {
-        return "Member";
+        if (membership.equals("Basic"))
+            return "Basic-Member";
+        else
+             return "Advanced-Member";
     }
 }
