@@ -15,7 +15,7 @@ public class Author {
                 || authorFullName.contains("4") || authorFullName.contains("5")
                 || authorFullName.contains("6") || authorFullName.contains("7")
                 || authorFullName.contains("8") || authorFullName.contains("9")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Not a valid name!");
         }
         this.authorFullName = authorFullName;
     }
