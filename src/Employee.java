@@ -1,5 +1,6 @@
 public class Employee extends Person {
 
+    private double salary;
     private String position;
 
     public Employee(int id, String name, String phone, String position) {
