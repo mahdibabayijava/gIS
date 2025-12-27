@@ -48,4 +48,11 @@ public class Loan {
         setBook(book);
         setLoanEndDate(LocalDate.now());
     }
+
+    public void endLoan(Loan loan) {
+        Fine fine = new Fine(loan);
+        fine.checkOverDue();
+        fine.setFine();
+        fine.generateBill();
+    }
 }
