@@ -43,12 +43,6 @@ public class Loan {
 
 
     //-------------------------Methods-------------------------
-    public void startLoan(Member member, Book book) {
-        setMember(member);
-        setBook(book);
-        setLoanEndDate(LocalDate.now());
-    }
-
     public void endLoan(Loan loan) {
         Fine fine = new Fine(loan);
         fine.checkOverDue();
