@@ -2,7 +2,6 @@ public enum Category {
     ACTION,
     FICTION,
     FANTASY,
-    REALISM,
     NOVEL,
     HISTORY,
     HORROR,

@@ -43,4 +43,9 @@ public class Loan {
 
 
     //-------------------------Methods-------------------------
+    public void startLoan(Member member, Book book) {
+        setMember(member);
+        setBook(book);
+        setLoanEndDate(LocalDate.now());
+    }
 }
