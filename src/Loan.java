@@ -52,7 +52,11 @@ public class Loan {
     public void endLoan(Loan loan) {
         Fine fine = new Fine(loan);
         fine.checkOverDue();
-        fine.setFine();
-        fine.generateBill();
+        if (fine.getDaysOverDue() > 0) {
+            fine.setFine();
+            fine.generateBill();
+        } else {
+            System.out.println("No payment is needed, have a nice day.");
+        }
     }
 }
