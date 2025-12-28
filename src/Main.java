@@ -11,5 +11,20 @@ public class Main {
         frame.setUndecorated(false); //Keeps the title bar
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
+
+        JPanel leftPanel = new JPanel();
+        leftPanel.setPreferredSize(new Dimension(400, frame.getHeight()));
+        leftPanel.setBackground(Color.BLUE);
+
+        JPanel rightPanel = new JPanel();
+        rightPanel.setPreferredSize(new Dimension(400, frame.getHeight()));
+        rightPanel.setBackground(Color.RED);
+
+        JPanel middlePanel = new JPanel();
+        middlePanel.setPreferredSize(new Dimension(400, frame.getHeight()));
+
+        frame.add(leftPanel, BorderLayout.WEST);
+        frame.add(rightPanel, BorderLayout.EAST);
+        frame.add(middlePanel, BorderLayout.CENTER);
     }// End of main
 }// End of class
