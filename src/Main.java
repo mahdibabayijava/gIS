@@ -25,49 +25,70 @@ public class Main {
         rightPanel.setPreferredSize(new Dimension(350, frame.getHeight()));
         rightPanel.setBackground(new Color(39, 42, 51));
 
+        JButton[] func = new JButton[12];
+        for (int i = 0; i < 4; i++) {
+            func[i] = new JButton("ADD");
+        }
+        for (int i = 4; i < 8; i++) {
+            func[i] = new JButton("UPDATE");
+        }
+        for (int i = 8; i < 12; i++) {
+            func[i] = new JButton("REMOVE");
+        }
+        for (int i = 0; i < func.length; i++) {
+            func[i].setBackground(Color.WHITE);
+            func[i].setForeground(Color.BLACK);
+            func[i].setBorderPainted(false);
+            func[i].setFocusable(false);
+            func[i].setFocusPainted(false);
+            func[i].setContentAreaFilled(false);
+            final int ii = i; //گفت لازمه کلاس درونی متغیر فاینال بهش بدیم برای اونه
+            //rounding the corners of buttons
+            func[i].setUI(new javax.swing.plaf.basic.BasicButtonUI() {
+                @Override
+                public void paint(Graphics g, JComponent c) {
+                    Graphics2D g2 = (Graphics2D) g.create();
+                    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                    g2.setColor(func[ii].getBackground());
+                    g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 10, 10);
+                    super.paint(g2, c);
+                    g2.dispose();
+                }
+            });
+        }
+
+
         JLabel l1 = new JLabel("Book");
         l1.setForeground(Color.WHITE);
         l1.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        JButton b1 = new JButton("ADD");
-        JButton b2 = new JButton("UPDATE");
-        JButton b3 = new JButton("DELETE");
         leftPanel.add(l1);
-        leftPanel.add(b1);
-        leftPanel.add(b2);
-        leftPanel.add(b3);
+        leftPanel.add(func[0]);
+        leftPanel.add(func[4]);
+        leftPanel.add(func[8]);
 
         JLabel l2 = new JLabel("Magazine");
         l2.setForeground(Color.WHITE);
         l2.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        JButton mag1 = new JButton("ADD");
-        JButton mag2 = new JButton("UPDATE");
-        JButton mag3 = new JButton("DELETE");
         leftPanel.add(l2);
-        leftPanel.add(mag1);
-        leftPanel.add(mag2);
-        leftPanel.add(mag3);
+        Component add = leftPanel.add(func[1]);
+        leftPanel.add(func[5]);
+        leftPanel.add(func[9]);
 
         JLabel l3 = new JLabel("Member");
         l3.setForeground(Color.WHITE);
         l3.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        JButton m1 = new JButton("ADD");
-        JButton m2 = new JButton("UPDATE");
-        JButton m3 = new JButton("DELETE");
         rightPanel.add(l3);
-        rightPanel.add(m1);
-        rightPanel.add(m2);
-        rightPanel.add(m3);
+        rightPanel.add(func[2]);
+        rightPanel.add(func[6]);
+        rightPanel.add(func[10]);
 
         JLabel l4 = new JLabel("Employee");
         l4.setForeground(Color.WHITE);
         l4.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        JButton e1 = new JButton("ADD");
-        JButton e2 = new JButton("UPDATE");
-        JButton e3 = new JButton("DELETE");
         rightPanel.add(l4);
-        rightPanel.add(e1);
-        rightPanel.add(e2);
-        rightPanel.add(e3);
+        rightPanel.add(func[3]);
+        rightPanel.add(func[7]);
+        rightPanel.add(func[11]);
 
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
