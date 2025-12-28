@@ -115,35 +115,33 @@ public class Main {
             });
         }
 
+        JLabel[] label = new JLabel[4];
+        for (int i = 0; i < label.length; i++) {
+            label[i] = new JLabel();
+            label[i].setForeground(Color.WHITE);
+            label[i].setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        }
 
-        JLabel l1 = new JLabel("Book");
-        l1.setForeground(Color.WHITE);
-        l1.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        left1.add(l1);
+        label[0].setText("Book");
+        left1.add(label[0]);
         left2.add(func[0]);
         left2.add(func[4]);
         left2.add(func[8]);
 
-        JLabel l2 = new JLabel("Magazine");
-        l2.setForeground(Color.WHITE);
-        l2.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        left1.add(l2);
+        label[1].setText("Magazine");
+        left1.add(label[1]);
         left2.add(func[1]);
         left2.add(func[5]);
         left2.add(func[9]);
 
-        JLabel l3 = new JLabel("Member");
-        l3.setForeground(Color.WHITE);
-        l3.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        right1.add(l3);
+        label[2].setText("Member");
+        right1.add(label[2]);
         right2.add(func[2]);
         right2.add(func[6]);
         right2.add(func[10]);
 
-        JLabel l4 = new JLabel("Employee");
-        l4.setForeground(Color.WHITE);
-        l4.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        right1.add(l4);
+        label[3].setText("Employee");
+        right1.add(label[3]);
         right2.add(func[3]);
         right2.add(func[7]);
         right2.add(func[11]);
