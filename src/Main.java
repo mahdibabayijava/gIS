@@ -25,17 +25,38 @@ public class Main {
         rightPanel.setPreferredSize(new Dimension(350, frame.getHeight()));
         rightPanel.setBackground(new Color(39, 42, 51));
 
-        JLabel titleLabel = new JLabel("Book");
-        titleLabel.setForeground(Color.WHITE);
-        titleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        JLabel l1 = new JLabel("Book");
+        l1.setForeground(Color.WHITE);
+        l1.setFont(new Font("Segoe UI", Font.PLAIN, 20));
         JButton b1 = new JButton("ADD");
         JButton b2 = new JButton("UPDATE");
         JButton b3 = new JButton("DELETE");
-
-        leftPanel.add(titleLabel);
+        leftPanel.add(l1);
         leftPanel.add(b1);
         leftPanel.add(b2);
         leftPanel.add(b3);
+
+        JLabel l2 = new JLabel("Member");
+        l2.setForeground(Color.WHITE);
+        l2.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        JButton m1 = new JButton("ADD");
+        JButton m2 = new JButton("UPDATE");
+        JButton m3 = new JButton("DELETE");
+        leftPanel.add(l2);
+        leftPanel.add(m1);
+        leftPanel.add(m2);
+        leftPanel.add(m3);
+
+        JLabel l3 = new JLabel("Employee");
+        l3.setForeground(Color.WHITE);
+        l3.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        JButton e1 = new JButton("ADD");
+        JButton e2 = new JButton("UPDATE");
+        JButton e3 = new JButton("DELETE");
+        leftPanel.add(l3);
+        leftPanel.add(e1);
+        leftPanel.add(e2);
+        leftPanel.add(e3);
 
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
