@@ -27,7 +27,7 @@ public class Main {
 
         JLabel l1 = new JLabel("Book");
         l1.setForeground(Color.WHITE);
-        l1.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        l1.setFont(new Font("Segoe UI", Font.PLAIN, 18));
         JButton b1 = new JButton("ADD");
         JButton b2 = new JButton("UPDATE");
         JButton b3 = new JButton("DELETE");
@@ -36,27 +36,38 @@ public class Main {
         leftPanel.add(b2);
         leftPanel.add(b3);
 
-        JLabel l2 = new JLabel("Member");
+        JLabel l2 = new JLabel("Magazine");
         l2.setForeground(Color.WHITE);
-        l2.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        l2.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        JButton mag1 = new JButton("ADD");
+        JButton mag2 = new JButton("UPDATE");
+        JButton mag3 = new JButton("DELETE");
+        leftPanel.add(l2);
+        leftPanel.add(mag1);
+        leftPanel.add(mag2);
+        leftPanel.add(mag3);
+
+        JLabel l3 = new JLabel("Member");
+        l3.setForeground(Color.WHITE);
+        l3.setFont(new Font("Segoe UI", Font.PLAIN, 18));
         JButton m1 = new JButton("ADD");
         JButton m2 = new JButton("UPDATE");
         JButton m3 = new JButton("DELETE");
-        leftPanel.add(l2);
-        leftPanel.add(m1);
-        leftPanel.add(m2);
-        leftPanel.add(m3);
+        rightPanel.add(l3);
+        rightPanel.add(m1);
+        rightPanel.add(m2);
+        rightPanel.add(m3);
 
-        JLabel l3 = new JLabel("Employee");
-        l3.setForeground(Color.WHITE);
-        l3.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        JLabel l4 = new JLabel("Employee");
+        l4.setForeground(Color.WHITE);
+        l4.setFont(new Font("Segoe UI", Font.PLAIN, 18));
         JButton e1 = new JButton("ADD");
         JButton e2 = new JButton("UPDATE");
         JButton e3 = new JButton("DELETE");
-        leftPanel.add(l3);
-        leftPanel.add(e1);
-        leftPanel.add(e2);
-        leftPanel.add(e3);
+        rightPanel.add(l4);
+        rightPanel.add(e1);
+        rightPanel.add(e2);
+        rightPanel.add(e3);
 
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
