@@ -46,6 +46,19 @@ public class Main {
         JButton[] func = new JButton[12];
         for (int i = 0; i < 4; i++) {
             func[i] = new JButton("ADD");
+            final int ii = i;
+            func[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JPopupMenu popup = new JPopupMenu();
+                    popup.setPopupSize(120, 80);
+                    JMenuItem menuItem1 = new JMenuItem("Import");
+                    JMenuItem menuItem2 = new JMenuItem("Type");
+                    popup.add(menuItem1);
+                    popup.add(menuItem2);
+                    popup.show(func[ii], 0, func[ii].getHeight());
+                }
+            });
         }
         for (int i = 4; i < 8; i++) {
             func[i] = new JButton("UPDATE");
