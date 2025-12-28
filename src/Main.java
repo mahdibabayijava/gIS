@@ -1,5 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +21,13 @@ public class Main {
         JPanel leftPanel = new JPanel();
         leftPanel.setPreferredSize(new Dimension(350, frame.getHeight()));
         leftPanel.setBackground(new Color(39, 42, 51));
+        leftPanel.setLayout(new BorderLayout());
+        JPanel left1 = new JPanel();
+        left1.setPreferredSize(new Dimension(90, frame.getHeight()));
+        left1.setBackground(new Color(39, 42, 51));
+        JPanel left2 = new JPanel();
+        left2.setPreferredSize(new Dimension(250, frame.getHeight()));
+        left2.setBackground(new Color(39, 42, 51));
 
         JPanel middlePanel = new JPanel();
         middlePanel.setPreferredSize(new Dimension(500, frame.getHeight()));
@@ -24,6 +36,12 @@ public class Main {
         JPanel rightPanel = new JPanel();
         rightPanel.setPreferredSize(new Dimension(350, frame.getHeight()));
         rightPanel.setBackground(new Color(39, 42, 51));
+        JPanel right1 = new JPanel();
+        right1.setPreferredSize(new Dimension(90, frame.getHeight()));
+        right1.setBackground(new Color(39, 42, 51));
+        JPanel right2 = new JPanel();
+        right2.setPreferredSize(new Dimension(250, frame.getHeight()));
+        right2.setBackground(new Color(39, 42, 51));
 
         JButton[] func = new JButton[12];
         for (int i = 0; i < 4; i++) {
@@ -35,6 +53,7 @@ public class Main {
         for (int i = 8; i < 12; i++) {
             func[i] = new JButton("REMOVE");
         }
+        boolean[] isActive = new boolean[func.length]; //برای مشخص کردن دکمه toggle
         for (int i = 0; i < func.length; i++) {
             func[i].setBackground(Color.WHITE);
             func[i].setForeground(Color.BLACK);
@@ -55,40 +74,85 @@ public class Main {
                     g2.dispose();
                 }
             });
+            //hovering and unhovering state of the button
+            func[i].addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    func[ii].setBackground(new Color(255, 204, 0)); //hovering Color
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    func[ii].setBackground(new Color(246, 233, 179, 255)); //the first split second color of the clicking
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    if (isActive[ii])
+                        func[ii].setBackground(new Color(255, 204, 0)); //stays as the activated color
+                    else
+                        func[ii].setBackground(new Color(255, 255, 255)); //not hovering Color
+                }
+            });
+            //performing the given action on click
+            func[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //only one button can be toggled on at the same time
+                    if (isActive[ii]) {
+                        isActive[ii] = !isActive[ii]; //toggling on or off
+                        func[ii].setBackground(new Color(255, 255, 255)); //not activated color
+                    }
+                    else  {
+                        Arrays.fill(isActive, false);
+                        for (int i = 0; i < func.length; i++) {
+                            func[i].setBackground(new Color(255, 255, 255)); //not activated color
+                        }
+                        isActive[ii] = true;
+                        func[ii].setBackground(new Color(255, 204, 0)); //activated color
+                    }
+                }
+            });
         }
 
 
         JLabel l1 = new JLabel("Book");
         l1.setForeground(Color.WHITE);
         l1.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        leftPanel.add(l1);
-        leftPanel.add(func[0]);
-        leftPanel.add(func[4]);
-        leftPanel.add(func[8]);
+        left1.add(l1);
+        left2.add(func[0]);
+        left2.add(func[4]);
+        left2.add(func[8]);
 
         JLabel l2 = new JLabel("Magazine");
         l2.setForeground(Color.WHITE);
         l2.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        leftPanel.add(l2);
-        Component add = leftPanel.add(func[1]);
-        leftPanel.add(func[5]);
-        leftPanel.add(func[9]);
+        left1.add(l2);
+        left2.add(func[1]);
+        left2.add(func[5]);
+        left2.add(func[9]);
 
         JLabel l3 = new JLabel("Member");
         l3.setForeground(Color.WHITE);
         l3.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        rightPanel.add(l3);
-        rightPanel.add(func[2]);
-        rightPanel.add(func[6]);
-        rightPanel.add(func[10]);
+        right1.add(l3);
+        right2.add(func[2]);
+        right2.add(func[6]);
+        right2.add(func[10]);
 
         JLabel l4 = new JLabel("Employee");
         l4.setForeground(Color.WHITE);
         l4.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-        rightPanel.add(l4);
-        rightPanel.add(func[3]);
-        rightPanel.add(func[7]);
-        rightPanel.add(func[11]);
+        right1.add(l4);
+        right2.add(func[3]);
+        right2.add(func[7]);
+        right2.add(func[11]);
+
+        leftPanel.add(left1, BorderLayout.WEST);
+        leftPanel.add(left2, BorderLayout.EAST);
+
+        rightPanel.add(right1, BorderLayout.WEST);
+        rightPanel.add(right2, BorderLayout.EAST);
 
         frame.add(leftPanel, BorderLayout.WEST);
         frame.add(rightPanel, BorderLayout.EAST);
